@@ -1,0 +1,42 @@
+<div class="search_widget_main">
+  <h3>Search Player / Team</h3>
+  <br>
+  <div class="search_widget">
+    <div>
+      <select [(ngModel)]="selectedName" style="height: 27px;width: 152px;">
+        <option *ngFor="let data of reqData" [value]="data.value">{{data.name}}</option>
+      </select>
+
+    </div>
+    <input type="text" placeholder="Enter Search Text" [(ngModel)]="name" style="height: 22px; ; margin-left: 1%;">
+    <button (click)="search()" style=" width: 10%; margin-left: 1%;">Search</button>
+    <button *ngIf="isSearch" (click)="reset()" style=" width: 10%; margin-left: 1%;">Reset</button>
+  </div>
+  <p style="color: RED;">{{message}}</p>
+</div>
+<li class="cards_maindiv">
+  <ul class="cards_item_innerdiv" *ngFor="let data of playersData">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{data.PFName}}</mat-card-title>
+        <mat-card-subtitle>{{data.TName}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="../assets/player-images/{{data.Id}}.jpg"
+        onerror="this.onerror=null; this.src='../assets/player-images/default.png'" alt="{{data.PFName}}"
+        style="width:324px ;height:324px">
+      <mat-card-content>
+        <p>Full Name : {{data.PFName}}</p>
+        <p>Skills : {{data.SkillDesc}}</p>
+        <p>Player Value : $ {{data.Value}}</p>
+        <p>Upcoming Matches :</p>
+        <div *ngFor="let match of data.UpComingMatchesList">
+          <div *ngIf="match.CCode != ''">{{match.TSCode}} VS {{match.VsTSCode}} ( {{match.CCode}} vs {{match.VsCCode}} )
+            <br>{{match.MDate |
+            date:'medium': timezone}}
+          </div>
+          <div *ngIf="match.CCode == ''">No Match Scheduled</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ul>
+</li>

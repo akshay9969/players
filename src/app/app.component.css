@@ -1,0 +1,37 @@
+.example-card {
+    max-width: 200px;
+  }
+.cards {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+.search_widget {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.search_widget_main{
+  margin: 57px 0px 0px 110px;
+}
+
+.cards_maindiv {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 40px 179px 155px 102px;
+}
+
+.cards_item_innerdiv {
+  display: flex;
+  padding: 0px 8px 54px 8px;
+}  
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
